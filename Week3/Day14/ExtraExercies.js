@@ -2,8 +2,8 @@
     
     //Brainstorming
         let arr1=[1,2,3,4,5,6]
-        let initialValue=0
-        sum=arr1.reduce((accumulator, currentValue) => accumulator + currentValue,
+        initialValue=1
+        sum=arr1.reduce((accumulator, currentValue) => accumulator * currentValue,
         initialValue)
         console.log(sum)
 
@@ -14,8 +14,7 @@
     //  4. Call the product function with a sample array and print the result to the console.
         
         function product(arr){
-            let init=0;
-            let result= arr.reduce((acc,curr)=>acc+curr,init)
+           let result= arr.reduce((acc,curr)=>acc*curr)
             return result
         }
         console.log(product(arr1))
@@ -29,20 +28,20 @@
     // property ageInTenYears to each person object, which should be their current age plus ten.
     //  3. Use an arrow function within map() to handle the transformation.
 
-        const person=[
-            {
-                personName,
-                age,
-            }]
+//         const person=[
+//             {
+//                 personName,
+//                 age,
+//             }]
         
-        const alice = new person("Alice",25)
-        const bob = new person("Bob",30)
-        const charlie = new person("Charlie",35)
-console.log(person)
-        function addDecade(person){
-             ageInThenYears+=person.age
-            person.map().push(ageInThenYears)
-        }   
+//         const alice = new person("Alice",25)
+//         const bob = new person("Bob",30)
+//         const charlie = new person("Charlie",35)
+// console.log(person)
+//         function addDecade(person){
+//              ageInThenYears+=person.age
+//             person.map().push(ageInThenYears)
+//         }   
 
 
     // Expected output:
