@@ -28,3 +28,6 @@
             }
         console.log(mealDecision2("evening"))
     // ● Which one do you prefer?
+            // The first method is more readable and clearer to my human mind , 
+            // and i also think it would be easier to debug in any case
+            // if i was to return to this code i would probably be easier to understand the first method . 

@@ -2,6 +2,9 @@
     // ● Description:Write a function recommendProductCategory() that
     // takes a parameter category (string). Add a default category
     // “General”
+    function recommendProductCategory(category="General"){
+        
+    }
     // ● Implement this function twice:
     // ○ Once using the Logical OR operator.
     // ○ Once using the Nullish Coalescing Operator.
