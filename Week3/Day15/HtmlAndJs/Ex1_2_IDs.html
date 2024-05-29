@@ -1,0 +1,44 @@
+<!--! Adding IDs to HTML Elements:
+    * Take the HTML document from the previous exercise and identify elements that would benefit from having unique identifiers (IDs).
+    * Add id attributes to those elements, such as <div id="header">, <p id="intro">, <img id="logo">, etc.
+    * Ensure that each ID is unique within the document.
+    * Test the document in a web browser to verify that the IDs are correctly applied.
+ -->
+ <!--! Linking HTML Elements with IDs:
+ Choose two elements with IDs from your HTML document (e.g., a heading and a paragraph).
+ Create a hyperlink (` <a>`) element elsewhere in the document.
+ Use the href attribute to link the hyperlink to one of the elements by referencing its ID (e.g., <a href="#intro">Go to Introduction</a>).
+ Test the link in a web browser to ensure that clicking it scrolls the page to the linked element.
+  -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watermeloned</title>
+</head>
+<body>
+    <div id="header">
+        <h1> This is not a Watermelon</h1>
+    </div>
+
+    <p id="intro"> Watermelons are Awesome and i will show you why!!</p>
+    <p>Behold We are getting <u>Watermeloned</u></p>
+    
+    <img id="logo" src="https://images.pexels.com/photos/2403850/pexels-photo-2403850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+    alt="watermelon" width="400" ><br>
+
+    <p>Watermelons: nature's way of saying, <strong>"Why not have a snack that's 92% water and 100% fun?" </strong> <br>It's the only fruit that doubles as a refreshing drink, a snack, and a workout if you try to carry one home from the grocery store.<br> Just remember, the more you eat, the higher the chance you'll end up in an impromptu seed-spitting contest. <br>
+    <em>Beware, the winner gets bragging rights and sticky hands!</em></p>
+
+    <ul>
+        <li> <img src="https://images.pexels.com/photos/35545/watermelon-summer-little-girl-eating-watermelon-food.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="child eating" width="200"></li>
+        <li><img src="https://images.pexels.com/photos/5946081/pexels-photo-5946081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="watermelon slices" width="200"></li>
+        <li><img src="https://images.pexels.com/photos/140908/pexels-photo-140908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="2half watermelon enjoying the beach" width="200"></li>
+    </ul>
+    <p> Watermelons are like any other fruit they can be eaten , they can be sliced but for sure they also can be Free and enjoying the Sun</p>
+
+    <a href="#header">Go to Introduction</a>
+</body>
+</html>
