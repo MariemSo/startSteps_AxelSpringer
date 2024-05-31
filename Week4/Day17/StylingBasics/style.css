@@ -1,0 +1,24 @@
+legend{
+    text-align: center;
+    font-size: large;
+}
+fieldset{
+    margin: 20px;
+}
+h1{
+    text-align: center;
+}
+header ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+}
+p{
+    margin:0 10px 10px 10px;
+}

@@ -1,0 +1,64 @@
+<!-- Introducing Simple JavaScript Functionality:
+! Exercise 3: Calculating the Sum of Two Numbers:
+- Modify your HTML document to include two input fields (using <input> elements) for entering numbers and a button (using <button>) labeled 
+    "Calculate Sum".
+    - Write a JavaScript function that retrieves the values entered in the input fields, calculates their sum, and displays the result.
+    - Add an event listener to the button element so that when it is clicked, the JavaScript function is executed.
+    Test the functionality by entering numbers into the input fields and clicking the button to see the sum displayed.
+! Exercise 4: Generating a Random Number:
+    - Update your HTML document to include a button labeled "Generate Random Number" and a paragraph element where the random 
+    number will be displayed.
+    - Write a JavaScript function that generates a random number using the Math.random() method and displays it in the designated paragraph.
+    - Add an event listener to the button element so that when it is clicked, the JavaScript function is executed.
+    Test the functionality by clicking the button to generate a random number and verify that it changes with each click. 
+! Exercise 5: Your Choice:
+- Choose a simple JavaScript functionality that interests you or aligns with your learning goals (e.g., displaying a current date/time, 
+toggling visibility of an element, validating a form input).
+- Implement the chosen functionality in your HTML document using JavaScript.
+Test the functionality to ensure it works as expected. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Js Into motion</title>
+    </head>
+    <body>
+        <h1>Exercise 3-4-5</h1>
+        
+        <!--! Exercise 3-->
+        <h2>Calculate Sum</h2>
+        <p>Enter Your Complex number And My Smart brain Will Calculate it in an instance</p>
+        <input id="numInput" type="number">
+        <button id="submitBtn">Calculate Sum</button>
+
+        
+        <!--! Exercise 4-->
+        
+        <h2>Random Number</h2>
+        <div style="border: 2px solid; text-align: center;" >
+            <p id="displayedInput"></p>
+        </div><br>
+        <button id="randomButton">Generate Random Number</button><br>
+        
+        <!--! Exercise 5-->
+        <h2>Free Style Me</h2>
+        <p>Dj <span>Miou</span> on the mix</p> 
+        <div style="display: flex; gap: 100px;">
+            <div>
+                <button id="redBtn">Red</button>
+                <div id="red"></div><br>
+            </div>
+            <div>
+                <button id="blueBtn">Blue</button><br>
+                <div id="blue" ></div>
+            </div>
+            <div>
+                <button id="yellowBtn">Yellow</button>
+                <div id="yellow"></div><br>
+            </div>
+        </div>
+        
+        <script src="/Week3/Day15/HtmlAndJs/Ex3_4_5.js"></script>
+    </body>
+</html>
