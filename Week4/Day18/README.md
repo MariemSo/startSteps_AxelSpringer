@@ -1,14 +1,9 @@
 Day 18:
-HTML CSS x JS
+##HTML CSS x JS
 
-Full-Stack Media Tech Program
-Week 4, Exercise Materials
+###Week 4, Exercise Materials
 
-HTML CSS x JS
-
-Software Engineering 101: Week 4, Day 18
-
-HTML CSS x JS
+#HTML CSS x JS : Week 4, Day 18
 
 1. Exercise 1: Basic Counter:
 
