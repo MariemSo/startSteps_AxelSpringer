@@ -9,8 +9,10 @@ font-size: 50px;}
 }
 ul{
     list-style: none;
-    
+    margin-left: 0;
+    padding-left: 0;
 }
+/* List and FlexBox */
 .verticalList{
     display: flex;
     justify-content: center;
@@ -27,12 +29,11 @@ ul{
     display: flex;
     justify-content: space-around;
 }
-.topic h2{
-    padding-left: 40px;
-}
 .topic li{
     padding: 10px;
 }
+
+/* Grid-Images */
 #gridImage{
     padding-top: 50px;
     justify-content: center;
