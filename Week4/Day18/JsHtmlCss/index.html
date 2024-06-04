@@ -10,17 +10,27 @@
     <!-- Exercise 1: Basic Counter -->
     <fieldset class="basicCounter">
         <legend>Basic Counter</legend>
-        <div id="counter">0</div>
+        <div id="counter"></div>
         <button id="incrementBtn">Increment</button>
-    </fieldset>
+    </fieldset><br>
     
     <!-- Exercise 2:Form Validation -->
     <fieldset class="validationForm">
         <legend>Form Validation</legend>
-        <form>
-            <input type="text" placeholder="Enter Name">
-            <input type="email" placeholder="Enter Email">
-            <button>Submit</button>
+
+        <form action="" id="submitForm">
+            <span id="nameError"></span><br>
+            <span id="successMsg">test</span><br>
+
+            <label for="nameInput">Name</label><br>
+            <input class="inputForm" id="nameInput" type="text"  placeholder="Enter Name"><br>
+           
+           <label for="emailInput">Email</label><br>
+           <!-- <span id="emailError"></span> -->
+           <input class="inputForm" id="emailInput" type="email"  placeholder="Enter Email">
+           
+            <button class="submitBtn" type="submit" >Submit</button>
+        
         </form>
 
     </fieldset>
