@@ -31,6 +31,7 @@ nav a {
 .hero-image{
     height: 100vh;
     width: 100vw;
+    position: relative;
 }
 
 .hero-text{
@@ -103,15 +104,15 @@ nav a {
         body{
             overflow-x: hidden;
         }
-        .hero-image{
+        /* .hero-image{
             height: 100vh;
             width: 100vw;
-        }
-        /* .hero-image{
+        } */
+        .hero-image{
             max-width: 100%;
             height: 100%;
             width: auto;
-        } */
+        }
         header  .logo-image{
             display: none;
         }
@@ -130,8 +131,8 @@ nav a {
         .responsive-nav ul {
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Align items to the bottom */
-            align-items: flex-end; /* Align items to the right */
+            justify-content: flex-end;
+            align-items: flex-end; 
         }
         .responsive-nav a{
             font-size: 24px;
@@ -151,5 +152,14 @@ nav a {
             gap:0;
             flex-direction: column;
         }   
-    
+        /* .hero-image{
+            position: relative;
+
+        }
+        
+        .hero-text{
+            position: relative;
+ 
+        } */
+        
 }
