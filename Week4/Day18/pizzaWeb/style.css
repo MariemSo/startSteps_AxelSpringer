@@ -28,6 +28,12 @@ nav a {
     font-weight: bold;
     font-size: 16px;
 }
+nav a:hover{
+    color:#DA4167;
+}
+.navItem.active a {
+    color:#DA4167;
+}
 .hero-image{
     height: 100vh;
     width: 100vw;
@@ -78,11 +84,11 @@ nav a {
     margin-top: 20px ;
     margin-bottom: 20px ;
     padding: 50px;
-    background-color: rgb(245, 244, 211);
+    background-color: #f5f4d3;
     border-radius: 20px;
 }
 .footer{
-    background-color: rgb(195, 241, 68);
+    background-color: #c3f144;
     padding: 0;
     margin: 0;
 }
