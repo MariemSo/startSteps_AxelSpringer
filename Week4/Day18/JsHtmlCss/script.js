@@ -17,7 +17,6 @@ let nameError=document.getElementById("nameError")
 let successMsg = document.getElementById("successMsg") ?? "your Form was successfully ";
 
 let emailInput= document.getElementById("emailInput");
-// let emailError=document.getElementById("emailError")
 
 //store the from in a variable 
 let submitForm=document.getElementById("submitForm");

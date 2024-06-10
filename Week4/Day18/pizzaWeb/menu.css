@@ -5,10 +5,10 @@ ul{
 }
 .menuImages{
     border-radius: 10px;
-    height: 150px;
+    height: 15vh;
 }
 .onePizza{
-    max-width: 250px;
+    max-width: 50vw;
     padding: 30px;
     border-radius: 10px;
     background-color: #f5f4d3;
@@ -44,7 +44,14 @@ ul{
     padding: 5px;
     margin-right: 10px;
 }
-
+.mainContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainContainer img{
+  height: 50vh;
+}
 /* Btn CSS */
 .Btn {
   align-items: center;
@@ -99,9 +106,43 @@ ul{
     height: 48px;
     width: 48px;
 }
-  
-@media (max-width: 420px) {
+
+@media (max-width:600px) {
   .button-84 {
     height: 48px;
   }
+  .mainContainer {
+    display: block;
+  }
+  .mainContainer img{
+    display: none;
+  }
+  .onePizza{
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f5f4d3;
+    margin: 10px;
+
+}
+}
+@media (max-width:400px) {
+  .button-84 {
+    height: 48px;
+  }
+  .mainContainer {
+    display: block;
+  }
+  .mainContainer img{
+    display: none;
+  }
+  .onePizza{
+    max-width: 180px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f5f4d3;
+    margin: 10px;
+
+}
+
 }
