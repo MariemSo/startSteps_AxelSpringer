@@ -99,3 +99,27 @@ button{
     color: #fff;
 
 }
+@media (max-width:600px) {
+    .contactUsSection{
+        display: block;
+        align-content: center;
+    }
+    input, textarea{
+
+        width: 20vh;
+
+    }
+    .imgInfo{
+        height: 23vh;
+        border-radius: 10px;
+        margin: 20px 0px;
+    }
+    .getInTouch{
+        width: 60vw;
+        height: 100vh;
+    }
+    .infoSection{
+        gap: 100px;
+
+    }
+}
