@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 5: Cities List</title>
+</head>
+<body>
+  <h1>Cities List</h1>
+
+       <input type="text" placeholder="Enter a city" id="cityInput">
+       <input type="number" placeholder="Enter position " min="1" id="positionInput">
+       <button id="addCityButton"> Add City</button>
+       <ul id="cityList"></ul>
+
+
+  <script>
+    // Task 2 JavaScript code goes here
+    // Step 1: Create an array with the names of three cities.
+      let cities = ["Tunisia", "Italy", "France"]
+    // Step 2: Get the input fields, button, and <ul> element by their IDs.
+      const cityInput=document.getElementById("cityInput")
+      const positionInput=document.getElementById("positionInput")
+      const addCityButton=document.getElementById("addCityButton")
+      const cityList=document.getElementById("cityList")
+    // Step 3: Create a function to display the cities in the list.
+    function displayCities(){
+      cities.forEach(c=> {
+        const city=document.createElement('li')
+        city.textContent=c
+        cityList.appendChild(city)
+      })
+    }
+    displayCities() 
+    // Step 4: Create a function to add a city to the array at a specific position.
+    // Step 5: Add an event listener to the button to add the city and update the list when clicked.
+    // Step 6: Initial display of cities.
+
+
+    
+  </script>
+</body>
+</html>

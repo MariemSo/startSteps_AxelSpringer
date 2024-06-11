@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animals List</title>
+  </head>
+  <body>
+    <h1>Animals List</h1>
+  
+          <button id="removeAnimalButton">Delete Last Animal</button>
+          <ul id="animalList"></ul>
+
+    <script>
+      // Task 3 JavaScript code goes here
+      // 1. Create an array with the names of four animals.
+          let animals=["🐈","🐕","🐣","🐅"]
+      // 2. Use JavaScript to remove the last animal and update the list.
+      const animalList=document.getElementById("animalList")
+      function displayAnimals(){
+        animals.forEach(a => {
+          const oneAnimal=document.createElement('li');
+          oneAnimal.textContent= a;
+          animalList.appendChild(oneAnimal);
+      })}
+      displayAnimals()
+
+      const removeBtn= document.getElementById("removeAnimalButton");
+      removeBtn.addEventListener("click",()=>{
+        animalList.innerHTML=""
+        animals.pop()
+        displayAnimals()
+      })
+
+    
+    </script>
+  </body>
+</html>

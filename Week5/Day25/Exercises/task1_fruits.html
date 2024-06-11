@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task1: Fruits List</title>
+  </head>
+  <body>
+    <h1>Fruits List </h1>
+    <ul id="fruitList"></ul>
+
+    <script>
+      // Task 1 JavaScript code goes here
+      // 1. Create an array with the names of five fruits.
+        let fruits=["Mango 🥭","Watermelon 🍉","Strawberry 🍓","Grapes🍇","Tomato 🍅","Melon 🍈"]
+      // 2. Use JavaScript to display each fruit in an unordered list (<ul>) on a webpage.
+        const fruitList= document.getElementById("fruitList")
+        function displayFruits(){
+          fruits.forEach(fruit => {
+            const fruitItem=document.createElement('li');
+            fruitItem.textContent= fruit;
+            fruitList.appendChild(fruitItem);
+          })}
+          displayFruits()
+    </script>
+  </body>
+</html>

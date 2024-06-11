@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task 2: Colors List</title>
+  </head>
+  <body>
+    <h1>Colors List</h1>
+
+        <input type="text" id="colorInput">
+        <button id="addColorButton">Add Color</button>
+        <ul id="listOfColors"></ul>
+
+
+    <script>
+
+        let colors =["Blue🔵","Red🔴","Yellow🟡"]
+
+      const addColorButton=document.getElementById("addColorButton");
+      const listOfColors=document.getElementById("listOfColors");
+      
+      function displayColors(){
+        listOfColors.innerHTML=""
+        colors.forEach(color => {
+          const oneColor = document.createElement('li')
+          oneColor.textContent=color
+          listOfColors.appendChild(oneColor);
+        });  
+      document.getElementById('colorInput').value=""
+      }
+      displayColors()
+
+      //add color to the array
+      addColorButton.addEventListener("click",()=>{
+        const addedColor= document.getElementById("colorInput").value;
+        colors.push(addedColor)
+        displayColors()
+        });
+      
+
+
+    
+    </script>
+  </body>
+</html>
