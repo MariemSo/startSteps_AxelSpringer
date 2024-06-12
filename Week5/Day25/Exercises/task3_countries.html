@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Countries List</title>
-</head>
-<body>
-  <h1>Countries List</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Countries List</title>
+  </head>
+  <body>
+    <h1>Countries List</h1>
 
-        <ul id="countryList"></ul>
-        <p id="countryCount"></p>
-        <input id="countryInput">
-        <button id="deleteBtn">Delete a country</button>
+    <ul id="countryList"></ul>
+    <p id="countryCount"></p>
+    <input id="countryInput" />
+    <button id="deleteBtn">Delete a country</button>
 
-  <script>
+    <script>
+      let country = ["Tunisia", "Palestine", "France", "Hungary", "Mexico"];
 
-      let country=["Tunisia","Palestine","France","Hungary","Mexico"]
+      let listOfCountries = document.getElementById("countryList");
+      let countryCount = document.getElementById("countryCount");
 
-      let listOfCountries= document.getElementById("countryList")
-      let countryCount = document.getElementById("countryCount")
-
-      function displayCountry(){
-        listOfCountries.innerHTML=""
-        country.forEach(c => {
-          const oneCountry=document.createElement('li');
-          countryCount.innerHTML=`These are ${country.length} countries Names`
-          oneCountry.textContent= c;
+      function displayCountry() {
+        listOfCountries.innerHTML = "";
+        country.forEach((c) => {
+          const oneCountry = document.createElement("li");
+          countryCount.innerHTML = `These are ${country.length} countries Names`;
+          oneCountry.textContent = c;
           listOfCountries.appendChild(oneCountry);
-      });
-      document.getElementById("countryInput").value=""
+        });
+        document.getElementById("countryInput").value = "";
       }
 
-      displayCountry()
+      displayCountry();
 
-      let deleteBtn=document.getElementById("deleteBtn")
-      
-      deleteBtn.addEventListener("click",()=>{
-        let countryInput=document.getElementById("countryInput").value
-        let index=country.indexOf(countryInput)
-        if (index!==-1){
-          country.splice(index,1)
-          displayCountry()
-        }
-        else{
-          alert("city not found")
-        }
-        })
+      let deleteBtn = document.getElementById("deleteBtn");
 
-  </script>
-</body>
+      deleteBtn.addEventListener("click", () => {
+        let countryInput = document.getElementById("countryInput").value;
+        let index = country.indexOf(countryInput);
+        if (index !== -1) {
+          country.splice(index, 1);
+          displayCountry();
+        } else {
+          alert("city not found");
+        }
+      });
+    </script>
+  </body>
 </html>
