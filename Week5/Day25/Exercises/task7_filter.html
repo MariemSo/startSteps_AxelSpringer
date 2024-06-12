@@ -10,13 +10,43 @@
   <!-- Task 3 HTML goes here
        Add:
        1. A dropdown (select) element for different genres (id="genreSelect") -->
-       
-  
+       <Select id="genreSelect">
+         <option value="Sci-Fi">Sci-Fi</option>
+         <option value="Crime">Crime</option>
+         <option value="Action">Action</option>
+         <option value="Drama">Drama</option>
+         <option value="Fantasy">Fantasy</option>
+      </Select>
+      <ul id="moviesList"></ul>
   <script>
     // Task 3 JavaScript code goes here
     // Step 1: Create an array of movie objects, each with a title and genre. At least 10 movies.
+    const movies = [
+      { title: "Inception", genre: "Sci-Fi" },
+      { title: "The Godfather", genre: "Crime" },
+      { title: "The Dark Knight", genre: "Action" },
+      { title: "Pulp Fiction", genre: "Crime" },
+      { title: "Forrest Gump", genre: "Drama" },
+      { title: "The Matrix", genre: "Sci-Fi" },
+      { title: "The Shawshank Redemption", genre: "Drama" },
+      { title: "Interstellar", genre: "Sci-Fi" },
+      { title: "Fight Club", genre: "Drama" },
+      { title: "The Lord of the Rings: The Return of the King", genre: "Fantasy" }
+    ];
     // Step 2: Get the dropdown and <ul> element by their IDs.
-    // Step 3: Create a function to display the movies in the list.
+      const genreSelect = document.getElementById("genreSelect")
+      const moviesList = document.getElementById("moviesList")
+      // Step 3: Create a function to display the movies in the list.
+      function displayMovies(){
+        // moviesList.innerHTML=""
+        movies.forEach(movie=>{
+        const listItem=document.createElement("li")
+        listItem.textContent=`${movie.title}-${movie.genre}`
+        console.log(listItem.textContent)
+        moviesList.appendChild(listItem);
+      })
+    }
+    displayMovies() 
     // Step 4: Create a function to check if a movie's genre matches the selected genre.
     // Step 5: Add an event listener to the dropdown to filter and display movies when changed.
     // Step 6: Initial display of all movies.
