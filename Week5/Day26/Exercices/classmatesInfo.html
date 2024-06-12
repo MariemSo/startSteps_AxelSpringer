@@ -1,0 +1,59 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Classmates Information</title>
+    </head>
+    <body>
+      <h1>Classmates Information</h1>
+      <ul id="classmatesList"></ul>
+      <script>
+         
+        // Create an array of student objects and display their information in a list on the webpage.
+          const students=[
+            {
+              name: "Daniela",
+              surname: "Dani",
+              hobby: "Girls",
+              hasPet: true,
+            },
+            {
+              name: "Estelle",
+              surname: "Stelly",
+              hobby: "Boobs",
+              hasPet: false,
+            },
+            {
+              name: "Regina",
+              surname: "Re",
+              hobby: "Face Beauty",
+              hasPet: true,
+            },
+            {
+              name: "Zana",
+              surname: "Nana",
+              hobby: "Rolling in the deep",
+              hasPet: false,
+            },
+            {
+              name: "Bojana",
+              surname: "Bo",
+              hobby: "Dogs",
+              hasPet: true,
+            },
+          ]
+        //2. Display each student's information in an unordered list (<ul> ). HTML:
+          function display(){
+            let classmatesList=document.getElementById("classmatesList")
+            students.forEach(student=>{
+              let pet = student.hasPet ? "Yes" : "No";
+              let classmate=document.createElement('li')
+              classmate.textContent=`Name:${student.name} - Surname: ${student.surname} - Hobby: ${student.hobby} - Pet: ${pet} `
+              classmatesList.appendChild(classmate)
+            })
+          }
+          display()
+      </script>
+    </body>
+  </html>
+</ul>

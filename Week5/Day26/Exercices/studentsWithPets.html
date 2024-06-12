@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Students with Pets</title>
+  </head>
+  <body>
+    <h1>Students with Pets</h1>
+    <ul id="studentsWithPetsList"></ul>
+    <script>
+      const students = [
+        {
+          name: "Daniela",
+          surname: "Dani",
+          hobby: "Girls",
+          hasPet: true,
+        },
+        {
+          name: "Estelle",
+          surname: "Stelly",
+          hobby: "Boobs",
+          hasPet: false,
+        },
+        {
+          name: "Regina",
+          surname: "Re",
+          hobby: "Face Beauty",
+          hasPet: true,
+        },
+        {
+          name: "Zana",
+          surname: "Nana",
+          hobby: "Rolling in the deep",
+          hasPet: false,
+        },
+        {
+          name: "Bojana",
+          surname: "Bo",
+          hobby: "Dogs",
+          hasPet: true,
+        },
+      ];
+      // 1. Filter the array to get only the students who have a pet.
+      function filterStudent() {
+        return students.filter((s) => {
+          return s.hasPet === true;
+        });
+      }
+      let studentsWithPet = filterStudent();
+      // 2. Display these students' information in an unordered list (<ul>).
+      function display() {
+        let studentsWithPetsList = document.getElementById(
+          "studentsWithPetsList"
+        );
+        studentsWithPet.forEach((student) => {
+          let pet = student.hasPet ? "Yes" : "No";
+          let classmate = document.createElement("li");
+          classmate.textContent = `Name:${student.name} - Surname: ${student.surname} - Hobby: ${student.hobby} - Pet: ${pet} `;
+          studentsWithPetsList.appendChild(classmate);
+        });
+      }
+      display();
+      // HTML:
+    </script>
+  </body>
+</html>

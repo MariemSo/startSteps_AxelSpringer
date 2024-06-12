@@ -1,0 +1,34 @@
+<!-- ! Task 1: Create and Display a Student Object -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Information</title>
+  </head>
+  <body>
+    <h1>Student Information</h1>
+    <p id="studentInfo"></p>
+    <script>
+      // Objective: Create a student object and display its properties in HTML.
+      // Instructions:
+      // 1. Create an object representing a student with properties: name, surname, hobby,
+      // and hasPet.
+      const student = {
+        name: "Salim",
+        surname: "Sali",
+        hobby: "nail Polish",
+        hasPet: true,
+      };
+
+      // 2. Display the student's information in a paragraph on the webpage.
+      const studentInfo = document.getElementById("studentInfo");
+      function displayInfo() {
+        let pet = student.hasPet ? "Yes" : "No";
+        console.log(pet);
+        studentInfo.textContent = `Name:${student.name} - Surname:${student.surname} - Hobby:${student.hobby} - Pet: ${pet} `;
+      }
+      displayInfo();
+    </script>
+  </body>
+</html>

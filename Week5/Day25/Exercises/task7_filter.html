@@ -11,7 +11,7 @@
        Add:
        1. A dropdown (select) element for different genres (id="genreSelect") -->
     <select id="genreSelect">
-      <option>selectGenre</option>
+      <option value="">Select Genre</option>
       <option value="Sci-Fi">Sci-Fi</option>
       <option value="Crime">Crime</option>
       <option value="Action">Action</option>
@@ -57,16 +57,15 @@
           return movie.genre === genre;
         });
       }
-      console.log(genreCheck("Sci-Fi"));
       // Step 5: Add an event listener to the dropdown to filter and display movies when changed.
       genreSelect.addEventListener("change", (e) => {
         let result = genreCheck(e.target.value);
-        displayMovies(result);
+        if (result != "") {
+          displayMovies(result);
+        } else {
+          displayMovies(movies);
+        }
       });
-      // Step 6: Initial display of all movies.
-
-      // Step 1: Create an array of movie objects, each with a title and genre.
-      // Example: { title: 'The Shawshank Redemption', genre: 'Drama' }
     </script>
   </body>
 </html>
