@@ -41,16 +41,8 @@ Display the unique hobbies in an unordered list (<ul>). -->
       map2 = Array.from(students).slice(2);
 
       //creating two empty Maps to store Data
-      studentsG1 = new Map();
-      studentsG2 = new Map();
-
-      //iterating Through map 1 and 2 of type Object and pushing the values in the new created maps
-      for (k in map1) {
-        studentsG1.set(map1[k][0], map1[k][1]);
-      }
-      for (k in map2) {
-        studentsG2.set(map2[k][0], map2[k][1]);
-      }
+      studentsG1 = new Map(map1);
+      studentsG2 = new Map(map2);
 
       // Display Function of Students
       function displayStudents() {
@@ -103,7 +95,6 @@ Display the unique hobbies in an unordered list (<ul>). -->
         hobby.textContent = h;
         hobbiesList.appendChild(hobby);
       });
-
       // #endregion
     </script>
   </body>

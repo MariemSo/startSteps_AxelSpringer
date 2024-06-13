@@ -1,0 +1,43 @@
+<!-- Task 4: Combine Two Sets of Student Names
+Add a new unordered list (<ul>) to your html (id: combinedNamesList)
+Create two Sets of student names.
+Combine these Sets into one using the spread operator.
+Display the combined Set in an unordered list (<ul>). -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Two Students Groups</title>
+  </head>
+  <body>
+    <h1>Students Names</h1>
+    <ul id="combinedNamesList"></ul>
+    <script>
+      let groupOne = new Set();
+      let groupeTwo = new Set();
+
+      groupOne.add("Regina");
+      groupOne.add("Estelle");
+      groupOne.add("Zana");
+      groupOne.add("Daniela");
+      groupOne.add("Bojana");
+      groupeTwo.add("Tina");
+      groupeTwo.add("Francielli");
+      groupeTwo.add("Bernadetta");
+      groupeTwo.add("Shenoa");
+      groupeTwo.add("Miou");
+
+      let group = new Set([...groupOne, ...groupeTwo]);
+      console.log(group);
+      const combinedNamesList = document.getElementById("combinedNamesList");
+      function displayStudentsNames() {
+        group.forEach((g) => {
+          const groupNames = document.createElement("li");
+          groupNames.textContent = g;
+          combinedNamesList.appendChild(groupNames);
+        });
+      }
+      displayStudentsNames();
+    </script>
+  </body>
+</html>
