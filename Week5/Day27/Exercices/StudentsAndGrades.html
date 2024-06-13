@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Students and Grades</title>
+  </head>
+  <body>
+    <h1>Students and Grades</h1>
+    <ul id="gradesList"></ul>
+    <script>
+      // Paste the following html in an empty html file. Create a JS file and add the script to your html.
+      // Create a Map with at least five student names and their corresponding grades.
+      let students = new Map();
+
+      //Adding student data to the map
+      students.set("Nikki", "A");
+      students.set("Bojana", "B");
+      students.set("Zana", "C");
+      students.set("Max", "D");
+      students.set("Phoenix", "F");
+      // Create a function (that takes a map as input) to display the student names and grades in an unordered list (<ul>).
+      function displayStudents() {
+        const gradesList = document.getElementById("gradesList");
+
+        students.forEach((grade, student) => {
+          let studentsList = document.createElement("li");
+          studentsList.textContent = `${student} has a grade of ${grade} `;
+          gradesList.appendChild(studentsList);
+        });
+      }
+      displayStudents();
+      // HTML:
+    </script>
+  </body>
+</html>

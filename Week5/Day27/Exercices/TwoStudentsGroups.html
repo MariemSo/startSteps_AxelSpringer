@@ -1,0 +1,76 @@
+<!-- Task 2: Create Two Student Groups
+Split the Map from the previous exercise into two separate Maps for two groups. 
+(e.g. the first 3 students in one group and the last 2 students in one group)
+Add 2 new unordered lists (<ul>) to your html (id: group1List & group2List)
+Adapt the function from the last exercise so it can display each group in the separate unordered lists (<ul>).
+     (p.s. Don’t forget to update the function call from the previous exercise, so that the original list of the students and grades is also still shown) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Two Students Groups and Grades</title>
+  </head>
+  <body>
+    <h1>Students and Grades</h1>
+
+    <h2>Class Grades</h2>
+    <ul id="gradesList"></ul>
+
+    <h2>Group One Grades</h2>
+    <ul id="groupOne"></ul>
+
+    <h2>Group Two Grades</h2>
+    <ul id="groupTwo"></ul>
+    <script>
+      let students = new Map();
+
+      //Adding student data to the map
+      students.set("Nikki", "A");
+      students.set("Bojana", "B");
+      students.set("Zana", "C");
+      students.set("Max", "D");
+      students.set("Phoenix", "F");
+
+      //converting the Maps to and array to slice
+      map1 = Array.from(students).slice(0, 2);
+      map2 = Array.from(students).slice(2);
+
+      //creating two empty Maps to store Data
+      studentsG1 = new Map();
+      studentsG2 = new Map();
+
+      //iterating Through map 1 and 2 of type Object and pushing the values in the new created maps
+      for (k in map1) {
+        studentsG1.set(map1[k][0], map1[k][1]);
+      }
+      for (k in map2) {
+        studentsG2.set(map2[k][0], map2[k][1]);
+      }
+
+      // Display Function of Students
+      function displayStudents() {
+        const gradesList = document.getElementById("gradesList");
+        const groupOne = document.getElementById("groupOne");
+        const groupTwo = document.getElementById("groupTwo");
+
+        //Displaying
+        students.forEach((grade, student) => {
+          let studentsList = document.createElement("li");
+          studentsList.textContent = `${student} has a grade of ${grade} `;
+          gradesList.appendChild(studentsList);
+        });
+        studentsG1.forEach((grade, student) => {
+          let studentsList = document.createElement("li");
+          studentsList.textContent = `${student} has a grade of ${grade} `;
+          groupOne.appendChild(studentsList);
+        });
+        studentsG2.forEach((grade, student) => {
+          let studentsList = document.createElement("li");
+          studentsList.textContent = `${student} has a grade of ${grade} `;
+          groupTwo.appendChild(studentsList);
+        });
+      }
+      displayStudents();
+    </script>
+  </body>
+</html>
