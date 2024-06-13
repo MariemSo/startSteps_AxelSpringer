@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Manipulation</title>
+    <script defer src="manager.js"></script>
+  </head>
+  <body>
+    <h1>Set Manipulation</h1>
+    <fieldset>
+      <legend>Form to add/delete Set</legend>
+      <h2>Fruit</h2>
+      <input type="text" id="fruitInput" />
+      <button onclick="addFruits()">Add Fruit</button>
+      <button onclick="deleteFruits()">Delete Fruit</button>
+      <br />
+      <h2>Veggies</h2>
+      <input type="text" id="veggieInput" />
+      <button onclick="addVeggies()">Add Veggies</button>
+      <button onclick="deleteVeggies()">Delete Fruit</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Display Fruit / Veggies</legend>
+      <p id="displayFruits">There is no Fruits in this Set</p>
+      <p id="displayVeggies">There is no Veggies in this Set</p>
+      <p id="displayBasket">The Basket is empty</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Display Set Result</legend>
+      <p id="result"></p>
+      <p id="result_two"></p>
+    </fieldset>
+  </body>
+</html>
