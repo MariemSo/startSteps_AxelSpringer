@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Population Map Example</title>
+    <script defer src="manager.js"></script>
+  </head>
+  <body>
+    <h1>City Population Map Example</h1>
+    <fieldset>
+      <legend>Form</legend>
+
+      <form id="">
+        <label for="cityInput">City Name:</label>
+        <input type="text" id="cityInput" placeholder="Enter the city Name" />
+
+        <label for="populationInput">Population:</label>
+        <input
+          type="number"
+          id="populationInput"
+          placeholder="Enter the city's Population"
+        />
+        <button type="button" onclick="addCity()">Add City</button>
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>City Data</legend>
+      <div id="cityData"></div>
+    </fieldset>
+  </body>
+</html>

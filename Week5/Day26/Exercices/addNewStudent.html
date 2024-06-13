@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add New Student</title>
+  </head>
+  <body>
+    <h1>Add New Student</h1>
+    <form id="addStudentForm">
+      <label> Name: </label>
+      <input type="text" id="nameInput" />
+      <br />
+
+      <label> Surname: </label>
+      <input type="text" id="surnameInput" />
+      <br />
+
+      <label> Hobby: </label>
+      <input type="text" id="hobbyInput" />
+      <br />
+
+      <label> Has Pet: </label>
+      <input type="checkbox" id="hasPetInput" />
+      <br />
+
+      <button type="submit">Add Student</button>
+    </form>
+
+    <h2>Classmates Information</h2>
+    <ul id="updatedClassmatesList"></ul>
+    <script>
+      // 2. UseJavaScript to add a new student object to the array when the form is submitted.
+      const nameInput = document.getElementById("nameInput").value;
+      const surnameInput = document.getElementById("surnameInput").value;
+      const hobbyInput = document.getElementById("hobbyInput").value;
+      const hasPetInput = document.getElementById("hasPetInput").value;
+      const submit = document.getElementById("submit");
+      // 3. Update the displayed list with the new student. HTML:
+      let students = [];
+      let student = {
+        name: nameInput,
+        surname: surnameInput,
+        hobby: hobbyInput,
+        hasPet: hasPetInput,
+      };
+      students.push(student);
+      function displayStudents() {
+        const updatedClassmatesList = document.getElementById(
+          "updatedClassmatesList"
+        );
+        students.forEach((student) => {
+          let pet = student.hasPet ? "Yes" : "No";
+          let classmate = document.createElement("li");
+          classmate.textContent = `Name:${student.name} - Surname: ${student.surname} - Hobby: ${student.hobby} - Pet: ${pet} `;
+          studentsWithPetsList.appendChild(classmate);
+        });
+      }
+    </script>
+  </body>
+</html>
