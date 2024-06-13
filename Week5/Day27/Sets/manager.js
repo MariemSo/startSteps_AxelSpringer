@@ -27,27 +27,32 @@ const combinedSetParagraph = document.getElementById("result_two");
 combinedSetParagraph.textContent="the combined Set contains: "+ [...combinedSet].join(", ");
 
 // -----------------------------------------------------------------
-
+//Get the input elements for fruits and vegetables
 const fruitInput=document.getElementById("fruitInput")
 const veggieInput=document.getElementById("veggieInput")
 
-
+// Create Sets to store fruits and vegetables
 const fruits = new Set()
 const vegetables = new Set()
 
+// Function to display the current fruits in the Set
 function displayFruit(){
+    // Clear the input value
     fruitInput.value = "";
     const displayFruits= document.getElementById("displayFruits");
+    
+    // Check if the fruits Set is empty
     if(fruits.size == 0){
         displayFruits.textContent="There is no Fruits in this Set"
     }else{
         displayFruits.textContent ="the Set of Fruits contains:"+ [...fruits].join(" , ");
     }
-    updateBasket();
 
+    // Update the basket to reflect current fruits and vegetables
+    updateBasket();
 }
 
-
+// Function to add a fruit to the Set and display the updated Set
 function addFruits(){
     let fruit = fruitInput.value;
     console.log(fruit);
@@ -55,6 +60,7 @@ function addFruits(){
     displayFruit();
 }
 
+// Function to delete a fruit from the Set and display the updated Set
 function deleteFruits(){
     let fruit = fruitInput.value
     console.log(fruit)
@@ -62,6 +68,7 @@ function deleteFruits(){
     displayFruit()
 }
 
+// Function to display the current vegetables in the Set
 function displayVeggies(){
     veggieInput.value = "";
     const displayVeggies= document.getElementById("displayVeggies");
@@ -73,7 +80,7 @@ function displayVeggies(){
     updateBasket();
 
 }
-
+// Function to add a vegetable to the Set and display the updated Set
 function addVeggies(){
     let veggie = veggieInput.value
     console.log(veggie)
@@ -81,25 +88,33 @@ function addVeggies(){
     displayVeggies()
 }
 
+// Function to delete a vegetable from the Set and display the updated Set
 function deleteVeggies(){
     let veggie = veggieInput.value
     console.log(veggie)
     vegetables.delete(veggie)
+    
+    // Display the updated basket
     displayVeggies()
 
 }
-
+// Function to update the basket with current fruits and vegetables
 function updateBasket() {
+    // Create a new Set combining both fruits and vegetables
     basket = new Set([...fruits, ...vegetables]);
     displayBasket();
 }
 
+// Function to display the contents of the basket
 function displayBasket(){
     const displayBasketParagraph= document.getElementById("displayBasket")
+
+    // Check if the basket is empty
     if (basket.size==0){
         displayBasketParagraph.textContent="The Basket is empty"
     }else{
         displayBasketParagraph.textContent="The Basket contains "+[...basket].join(" , ")
     }
+    // Update the basket to ensure it reflects any recent changes
     updateBasket();
 }
