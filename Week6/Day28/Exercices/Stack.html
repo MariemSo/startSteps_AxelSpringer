@@ -1,0 +1,49 @@
+<!-- ! Task 1: Implement a Stack
+Objective: Implement a stack data structure using HTML and JavaScript. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stack Implementation</title>
+  </head>
+  <body>
+    <h1>Stack Implementation</h1>
+    <input type="text" id="stackInput" placeholder="Enter an element" />
+    <button onclick="pushElement()">Push</button>
+    <button onclick="popElement()">Pop</button>
+    <ul id="stackList"></ul>
+    <script>
+      //create an array to store the stack
+      let stack = [];
+
+      //get the input element and the ul
+      let stackInput = document.getElementById("stackInput");
+      let stackList = document.getElementById("stackList");
+
+      function pushElement() {
+        let pushValue = stackInput.value;
+        stack.push(pushValue);
+        console.log(stack);
+        stackDisplay();
+      }
+
+      function popElement() {
+        stack.pop();
+        console.log(stack);
+        stackDisplay();
+      }
+
+      function stackDisplay() {
+        stackList.innerHTML = "";
+        stack.forEach((s) => {
+          let stacks = document.createElement("li");
+          stacks.textContent = s;
+          stackList.appendChild(stacks);
+        });
+      }
+      stackDisplay();
+
+      // Display the stack elements in a list.
+    </script>
+  </body>
+</html>

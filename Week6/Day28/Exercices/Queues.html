@@ -1,0 +1,50 @@
+<!-- 
+Task 2: Implement a Queue in HTML
+Objective: Implement a queue data structure using HTML and JavaScript.
+Instructions:
+Create an input field and a button to enqueue elements into the queue. (See HTML below)
+Create a button to dequeue an element from the queue.
+Display the queue elements in a list.
+HTML: -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Queue Implementation</h1>
+    <input type="text" id="queueInput" placeholder="Enter an element" />
+    <button onclick="enqueueElement()">Enqueue</button>
+    <button onclick="dequeueElement()">Dequeue</button>
+    <ul id="queueList"></ul>
+    <script>
+      let queue = [];
+      let queueInput = document.getElementById("queueInput");
+      let queueList = document.getElementById("queueList");
+
+      function enqueueElement() {
+        let value = queueInput.value;
+        queue.unshift(value);
+        console.log(queue);
+        queueDisplay();
+      }
+      function dequeueElement() {
+        queue.pop();
+        console.log(queue);
+        queueDisplay();
+      }
+
+      function queueDisplay() {
+        queueList.innerHTML = "";
+        queue.forEach((s) => {
+          let queues = document.createElement("li");
+          queues.textContent = s;
+          queueList.appendChild(queues);
+        });
+      }
+      queueDisplay();
+    </script>
+  </body>
+</html>

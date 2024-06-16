@@ -44,30 +44,22 @@ Display the unique hobbies in an unordered list (<ul>). -->
       studentsG1 = new Map(map1);
       studentsG2 = new Map(map2);
 
+      const gradesList = document.getElementById("gradesList");
+      const groupOne = document.getElementById("groupOne");
+      const groupTwo = document.getElementById("groupTwo");
       // Display Function of Students
-      function displayStudents() {
-        const gradesList = document.getElementById("gradesList");
-        const groupOne = document.getElementById("groupOne");
-        const groupTwo = document.getElementById("groupTwo");
-
+      function displayStudents(group, htmlDisplay) {
         //Displaying
-        students.forEach((grade, student) => {
+        group.forEach((grade, student) => {
           let studentsList = document.createElement("li");
           studentsList.textContent = `${student} has a grade of ${grade} `;
-          gradesList.appendChild(studentsList);
-        });
-        studentsG1.forEach((grade, student) => {
-          let studentsList = document.createElement("li");
-          studentsList.textContent = `${student} has a grade of ${grade} `;
-          groupOne.appendChild(studentsList);
-        });
-        studentsG2.forEach((grade, student) => {
-          let studentsList = document.createElement("li");
-          studentsList.textContent = `${student} has a grade of ${grade} `;
-          groupTwo.appendChild(studentsList);
+          htmlDisplay.appendChild(studentsList);
         });
       }
-      displayStudents();
+      displayStudents(students, gradesList);
+      displayStudents(studentsG1, groupOne);
+      displayStudents(studentsG2, groupTwo);
+
       // #endregion
       // #region Sets
       //Create an array of hobbies

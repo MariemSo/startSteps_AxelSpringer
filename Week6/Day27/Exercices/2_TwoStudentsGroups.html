@@ -31,22 +31,22 @@ Adapt the function from the last exercise so it can display each group in the se
       students.set("Max", "D");
       students.set("Phoenix", "F");
 
+      console.log([...students]);
       //converting the Maps to and array to slice
       map1 = Array.from(students).slice(0, 2);
       map2 = Array.from(students).slice(2);
       console.log(typeof map1);
 
+      //iterating Through map 1 and 2 of type Object and pushing the values in the new created maps
+      // for (k in map1) {
+      //   studentsG1.set(map1[k][0], map1[k][1]);
+      // }
+      // for (k in map2) {
+      //   studentsG2.set(map2[k][0], map2[k][1]);
+      // }
       //creating two empty Maps to store Data
       studentsG1 = new Map(map1);
       studentsG2 = new Map(map2);
-
-      //iterating Through map 1 and 2 of type Object and pushing the values in the new created maps
-      //   for (k in map1) {
-      //     studentsG1.set(map1[k][0], map1[k][1]);
-      //   }
-      //   for (k in map2) {
-      //     studentsG2.set(map2[k][0], map2[k][1]);
-      //   }
 
       // Display Function of Students
       function displayStudents() {
