@@ -19,13 +19,26 @@
                     let temp=arr[0] ;
                     arr[0]= arr[1];
                     arr[1]=temp;
-                    return arr}
-                if  (arr[1]>arr[2]){
+                }
+                if(arr[0]<arr[1]){
+                   if (arr[1]>arr[0]){
                     let temp=arr[1] ;
                     arr[1]= arr[2];
                     arr[2]=temp;
-                    return arr
+                   }
                 }
-                }
-
+                return arr
+            }  
             console.log(sortThreeElements([9, 4, 7]))
+
+            function sortThreeElements1(arr){
+                for (i=0;i<arr.length;i++){
+                        if (arr[i]>arr[i+1]){
+                            let temp=arr[i] ;
+                            arr[i]= arr[i+1];
+                            arr[i+1]=temp;
+                        }
+                }
+                return arr
+            }  
+            console.log(sortThreeElements1([9, 4, 7]))
