@@ -19,7 +19,7 @@
         // 3. Use a temporary variable to store the data in process in order to swap it.
 //#region  Ascending Swap
         function swapInAscending(arr){
-            if (arr.length>2){
+            if (arr.length!==2){
                 return "can't swap more than two-element array "
             }
             else {
@@ -38,7 +38,7 @@
 //#endregion
 //#region Descending Swap
     function swapInDescending(arr){
-            if (arr.length>2){
+            if (arr.length!==2){
                 return "can't swap more than two-element array "
             }
             else {
@@ -56,4 +56,15 @@
 
         console.log(`Swap [2,5] In Descending : [${swapInDescending([2, 5])}]`)
         console.log(`Swap [5,2] In Descending : [${swapInDescending([5, 2])}]`)
+//#endregion
+//#region swap Three Element Array
+    function sortThreeElements(arr){
+        let newArr=[]
+
+        swapInAscending([arr[0],arr[1]])
+
+        swapInAscending([arr[1,arr[2]]])
+        return arr
+    }
+    console.log(sortThreeElements([9, 4, 7]))
 //#endregion
