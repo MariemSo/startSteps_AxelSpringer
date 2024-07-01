@@ -26,7 +26,7 @@ function fibTabulation(n){
         fib[i] = fib[i-1] + fib[i-2]
 
     }
-    return fib
+    return fib[n]
 }
 
 console.log(fibTabulation(5))
@@ -39,14 +39,12 @@ function fbnRecursive(n){
     return fbnRecursive (n-1) + fbnRecursive (n-2)
 }
 
-console.log(fbnRecursive(6))
+console.log(fbnRecursive(5))
 
 //--------------------------------------------------------
 
 // Create an array to store the calculated Fibonacci numbers
-const fibMemo=[]
-
-function fibMemoisation(n){
+function fibMemoisation(n,fibMemo=[]){
     // Base case: return n if it is 0 or 1
     if(n <=1){
         return n;
@@ -56,9 +54,9 @@ function fibMemoisation(n){
     if (fibMemo[n]){
         return fibMemo[n]
     }
-
+    console.log('count')
     // Compute the Fibonacci number recursively and store it in the array
-    fibMemo[n] = fibMemoisation(n-1) + fibMemoisation(n-2)
+    fibMemo[n] = fibMemoisation(n-1,fibMemo) + fibMemoisation(n-2,fibMemo)
     
     // Return the computed value
     return fibMemo[n]

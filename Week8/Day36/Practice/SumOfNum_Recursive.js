@@ -12,9 +12,11 @@
     // C. Sum of Numbers with Tabulation
 
 //---------------------------------------
+let count=0;
 function sumNumRecursion(n){
-    if (n<0) return 0
-    return n+sumNumRecursion(n-1)
+    if (n <= 1) return 1
+    count++
+    return n + sumNumRecursion(n - 1)
 }
 
 console.log(sumNumRecursion(5))
@@ -22,9 +24,9 @@ console.log(sumNumRecursion(5))
 //-----------------------------------------
 function sumNumTab(n){
 
-    let sumTab=[0]
-    for ( let i=1 ; i<=n;i++){
-        sumTab[i]=sumTab[i-1]+i
+    let sumTab = [0]
+    for ( let i = 1 ; i <= n;i++){
+        sumTab[i]=sumTab[i - 1] + i
     }
     return  sumTab[n]
 }
@@ -34,15 +36,15 @@ console.log(sumNumTab(5))
 const sumMemo=[];
 
 function smNumMemoization(n){
-    if (n<=0){
-        return 0;
+    if (n <= 1 ){
+        return 1;
     }                                                                       
 
     if (sumMemo[n]){
         return sumMemo[n];
     }
-
-    sumMemo[n] = n+smNumMemoization(n-1)
+    count++
+    sumMemo[n] = n + smNumMemoization(n - 1)
 
     return sumMemo[n]
 }
