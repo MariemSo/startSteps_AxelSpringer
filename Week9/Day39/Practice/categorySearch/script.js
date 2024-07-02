@@ -24,6 +24,8 @@ let students = [
     function filterStudents(){
         const category = document.getElementById("categories").value;
         const searchOutput = document.getElementById("searchOutput");
+        const legend = document.getElementById('categoryLegend');
+        legend.textContent = `Category: ${category}`;
         searchOutput.innerHTML = '';
 
         let found = false
@@ -46,8 +48,10 @@ let students = [
     function filterStudentsT(){
         const category = document.getElementById("categories").value;
         const searchOutput = document.getElementById("searchOutput");
+        const legend = document.getElementById('categoryLegend');
         searchOutput.innerHTML = '';
 
+        legend.textContent = `Category: ${category}`;
         students.filter(student => student.category === category).forEach(student => {
             let li = document.createElement('li')
             li.textContent=student.name
