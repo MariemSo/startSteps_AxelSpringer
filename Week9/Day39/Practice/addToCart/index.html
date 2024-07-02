@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>Shopping Cart</title>
+    <style>
+      .product {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 200px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .cart {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Shopping Cart</h2>
+    <div id="products">
+      <div class="product" onclick="addToCart('Laptop')">Laptop</div>
+
+      <div class="product" onclick="addToCart('Book')">Book</div>
+      <div class="product" onclick="addToCart('Headphones')">Headphones</div>
+
+      <div class="product" onclick="addToCart('Chair')">Chair</div>
+      <div class="product" onclick="addToCart('Smartphone')">Smartphone</div>
+    </div>
+    <div class="cart">
+      <h3>Shopping Cart</h3>
+      <ul id="cartItems">
+        <!-- Cart items will be displayed here -->
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

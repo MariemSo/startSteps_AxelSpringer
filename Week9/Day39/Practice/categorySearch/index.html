@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student System with Category Search</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>Choose a Category</h1>
+    <form id="categoryForm">
+      <select name="categories" id="categories">
+        <option value="engineering">Engineering</option>
+        <option value="medicine">Medicine</option>
+        <option value="psychology">Psychology</option>
+      </select>
+      <button type="button" onclick="filterStudents()">Search</button>
+      <button type="button" onclick="filterStudentsT()">Filter</button>
+    </form>
+    <fieldset>
+      <legend>Students List By Category</legend>
+      <ul id="searchOutput"></ul>
+    </fieldset>
+  </body>
+</html>
