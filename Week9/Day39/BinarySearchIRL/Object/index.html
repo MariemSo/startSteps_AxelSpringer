@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Recommendation</title>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <form id="productForm">
+      <label for="productInput">Select a Product</label>
+      <select name="productInput" id="productInput">
+        <option value="Shoes">Shoes</option>
+        <option value="T-Shirts">T-Shirts</option>
+        <option value="Coats">Coats</option>
+      </select>
+      <button type="button" onclick="recommendProducts()">
+        Get Recommendation
+      </button>
+      <p id="recommendations"></p>
+    </form>
+  </body>
+</html>
