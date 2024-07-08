@@ -85,3 +85,20 @@ function add(a:number, b:number):number {
 
 const multiply = (a: number, b: number): number => a * b;
 
+type StringOrNumbers = string | number;
+
+type PersonObject = {
+    name: string;
+    id : StringOrNumbers;
+};
+
+const p1: PersonObject = {
+    name: 'John',
+    id:1
+}
+
+const p2: PersonObject ={
+    name:'Delia',
+    id: "2"
+}
+
