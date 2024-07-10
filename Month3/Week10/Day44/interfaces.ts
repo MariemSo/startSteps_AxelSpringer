@@ -89,6 +89,6 @@ const printDetails= (employee:Emplyee):void=>{
         eng.solvingProblems();
     }else if ((employee as Manager).managin){
         const mang = employee as Manager;
-        manager.managin();
+        mang.managin();
     }
 }
