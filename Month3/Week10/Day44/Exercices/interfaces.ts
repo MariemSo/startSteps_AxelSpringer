@@ -12,7 +12,7 @@
         id:1,
         name: "Labor Free Skirt",
         price: 10,
-        quantity : 1,
+        quantity : 6,
         sizes: ["XXL", "XL","L", "M", "S","XS"]
     }
     let jeans: ClothingItem ={
@@ -53,5 +53,14 @@
         return count
     }
 
-    console.log(calculateAveragePrice(inventory))
-    console.log(countItemsInInventory(inventory))
+    console.log(calculateAveragePrice(inventory));
+    console.log(countItemsInInventory(inventory));
+
+//! Bonus Task: Manage Inventory Stock Levels
+
+    interface AddedFunc extends ClothingItem {
+        addStock : (quantity: number, size?: string)=> void 
+        removeStock: (quantity: number, size?: string) =>  void
+    }
+
+    
