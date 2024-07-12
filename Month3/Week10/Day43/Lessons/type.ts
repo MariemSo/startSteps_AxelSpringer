@@ -1,13 +1,13 @@
-type Person = {
+type PersonType = {
     name : string;
     age : number;
 }
 
 type ReadOnlyPerson = {
-    readonly [k in keyof Person] : Person[k];
+    readonly [k in keyof PersonType] : PersonType[k];
 }
 
-type PartialPerson = Partial<Person>
+type PartialPerson = Partial<PersonType>
 
 const john : ReadOnlyPerson = { name: "John", age: 30};
 
