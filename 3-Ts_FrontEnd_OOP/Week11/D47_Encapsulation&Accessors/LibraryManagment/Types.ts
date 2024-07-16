@@ -2,6 +2,7 @@ enum Genre  {
     FICTION = "Fiction" ,
     NONFICTION ="Non-fiction",
     SCIENCE = "Science",
+    BIOGRAPHY ="Biography"
 }
 
 interface BooksDetails{
