@@ -1,28 +1,27 @@
-class Parent{
-    firstName: string;
+class Parent {
+  firstName: string;
 
-    constructor(firstName:string){
-        this.firstName= firstName;
-    }
+  constructor(firstName: string) {
+    this.firstName = firstName;
+  }
 
-    processName(){
-        console.log("processName method in parent class",this.firstName);
-    }
+  processName() {
+    console.log("processName method in parent class", this.firstName);
+  }
 }
 
-class Child extends Parent{
+class Child extends Parent {
+  constructor(firstName: string) {
+    super(firstName);
+  }
 
-    constructor(firstName:string){
-        super(firstName);
-    }
-
-    processName(): void {
-        console.log("processName method in child class",this.firstName)
-    }
+  processName(): void {
+    console.log("processName method in child class", this.firstName);
+  }
 }
 
-let myObject = new Child("Kiran")
+let myObject = new Child("Kiran");
 myObject.processName();
 
-let myObject1 = new Parent("John")
-myObject1.processName()
+let myObject1 = new Parent("John");
+myObject1.processName();
