@@ -1,6 +1,8 @@
+// "use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import StoreWrapper from "../../store/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head></head>
+      <body>
+        <StoreWrapper>{children}</StoreWrapper>
+      </body>
     </html>
   );
 }

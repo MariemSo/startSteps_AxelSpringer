@@ -1,5 +1,3 @@
-import { act } from "react";
-
 function addArticle(article: IArticle) {
   const action: ArticleAction = {
     type: "ADD_ARTICLE",
@@ -15,3 +13,5 @@ function removeArticle(article: IArticle) {
   };
   return action;
 }
+
+export { removeArticle, addArticle };

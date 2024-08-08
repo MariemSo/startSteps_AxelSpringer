@@ -1,5 +1,8 @@
 "use client";
 import { createContext, useContext, useState } from "react";
+import Counter from "./Components/Counter";
+import RefUseCase from "./Components/RefUseCase";
+import UseReducer from "./Components/UseReducer";
 const UserContext = createContext();
 export default function Home() {
   const [user, setUser] = useState("Miou");
@@ -7,6 +10,15 @@ export default function Home() {
   return (
     <UserContext.Provider value={user}>
       <Component1 />
+      --------------------
+      <br />
+      <Counter />
+      --------------
+      <br />
+      <RefUseCase />
+      <br />
+      -----------------
+      <UseReducer />
     </UserContext.Provider>
   );
 }

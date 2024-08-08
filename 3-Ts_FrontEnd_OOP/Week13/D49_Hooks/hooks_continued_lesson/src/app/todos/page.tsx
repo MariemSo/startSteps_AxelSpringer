@@ -1,3 +1,4 @@
+"use client";
 import { useReducer } from "react";
 
 const initalTodos = [
@@ -29,8 +30,9 @@ const reducer = (state, action) => {
 export default function Todos() {
   const [todos, dispatch] = useReducer(reducer, initalTodos);
 
-  const handleChange = (todo) => {};
-  dispatch({ type: "COMPLETE", id: todo.id });
+  const handleChange = (todo) => {
+    dispatch({ type: "COMPLETE", id: todo.id });
+  };
   return (
     <>
       {todos.map((todo) => {
