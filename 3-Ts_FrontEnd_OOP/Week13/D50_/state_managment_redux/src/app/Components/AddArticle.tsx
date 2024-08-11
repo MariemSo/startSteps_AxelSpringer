@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  saveArticle: (article: IArticle) => void;
+  saveArticle: (article: IArticle | any) => void;
 };
 
 export const AddArticle: React.FC<Props> = ({ saveArticle }) => {
