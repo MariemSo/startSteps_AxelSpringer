@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "apollo-server-express": "^3.13.0",
+    "express": "^4.19.2"
+  },
+  "name": "d4_graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "type": "module",
+  "scripts": {
+    "dev": "node dist/index.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
