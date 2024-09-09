@@ -20,6 +20,16 @@ const resolvers = {
             books.push(newBook);
             return newBook;
         },
+        deleteBook: (_, { id }) => {
+            const index = books.findIndex((book) => book.id === id);
+            if (index !== -1) {
+                const [deleteBook] = books.splice(index, 1);
+                return deleteBook;
+            }
+            else {
+                throw new Error("Book not Found");
+            }
+        },
     },
 };
 export { resolvers };
