@@ -6,7 +6,7 @@ import {
   updateOnePetHappiness,
   deleteOnePet,
 } from "./controller.js";
-
+import petMiddleWare from "./middleware.js";
 const router = Router();
 
 //RESTfull API Routes
@@ -14,9 +14,14 @@ router.get("/", getAllPets);
 
 router.get("/:id", getOnePet);
 
-router.post("/", createOnePet);
+router.post("/", petMiddleWare.auth, petMiddleWare.createOnePet, createOnePet);
 
-router.patch("/:id", updateOnePetHappiness);
+router.patch(
+  "/:id",
+  petMiddleWare.auth,
+  petMiddleWare.updateOnePetHappiness,
+  updateOnePetHappiness
+);
 
 router.delete("/:id", deleteOnePet);
 

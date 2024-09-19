@@ -17,10 +17,10 @@ const getOnePet = (req: Request, res: Response) => {
 
 const createOnePet = (req: Request, res: Response) => {
   const { name, species } = req.body;
-  if (!name || !species) {
-    res.status(400).send("Name and Species are required");
-    return;
-  }
+  // if (!name || !species) {
+  //   res.status(400).send("Name and Species are required");
+  //   return;
+  // }
   const newPet = petModules.createPet(name, species);
   res.status(201).json(newPet);
 };
