@@ -32,21 +32,34 @@ const create = async (req: Request, res: Response) => {
   return res.status(201).send(newUser);
 };
 
-const update = (req: Request, res: Response) => {
+const update = async (req: Request, res: Response) => {
   const userId = parseInt(req.params.id);
-  const userIndex = users.findIndex((u) => u.id === userId);
-  if (userIndex === -1) {
+  const { name, email } = req.body;
+  const user = await User.findByIdAndUpdate(
+    userId,
+    { name, email },
+    { new: true }
+  );
+  if (user) {
     return res.status(404).send({ message: "User not found" });
   }
-  const { name, email } = req.body;
-  users[userIndex] = { id: userId, name, email };
-  res.status(200).send(users[userIndex]);
+  // const userIndex = users.findIndex((u) => u.id === userId);
+  // if (userIndex === -1) {
+  //   return res.status(404).send({ message: "User not found" });
+  // }
+  // const { name, email } = req.body;
+  // users[userIndex] = { id: userId, name, email };
+  // res.status(200).send(users[userIndex]);
 };
 
-const remove = (req: Request, res: Response) => {
+const remove = async (req: Request, res: Response) => {
   const userId = parseInt(req.params.id);
-  const userIndex = users.findIndex((u) => u.id === userId);
-  users.splice(userIndex, 1);
+  const user = await User.findByIdAndDelete(userId);
+  // const userIndex = users.findIndex((u) => u.id === userId);
+  // users.splice(userIndex, 1);
+  if (user) {
+    return res.status(404).send({ message: "User not found" });
+  }
   res.status(204).send();
 };
 
