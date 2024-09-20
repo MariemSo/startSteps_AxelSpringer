@@ -1,54 +1,22 @@
 import { Router } from "express";
+import userControllers from "./userControllers.js";
+import userMiddleware from "./middleware.js";
 
 const router = Router();
 
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+router.post(
+  "/",
+  userMiddleware.userValidation,
+  userMiddleware.userValidationHandler,
+  userControllers.create
+);
 
-let users: User[] = [];
+router.get("/", userControllers.getAll);
 
-router.post("/", (req, res) => {
-  const { name, email } = req.body;
-  const newUser: User = {
-    id: users.length + 1,
-    name: name,
-    email: email,
-  };
-  users.push(newUser);
-  return res.status(201).send(newUser);
-});
+router.get("/:id", userControllers.getOne);
 
-router.get("/", (req, res) => {
-  res.status(200).send(users);
-});
+router.put("/:id", userControllers.update);
 
-router.get("/:id", (req, res) => {
-  const userId = parseInt(req.params.id);
-  const user = users.find((u) => u.id === userId);
-  if (!user) {
-    return res.status(404).send({ message: "User not found" });
-  }
-  res.status(200).send(user);
-});
-
-router.put("/:id", (req, res) => {
-  const userId = parseInt(req.params.id);
-  const userIndex = users.findIndex((u) => u.id === userId);
-  if (userIndex === -1) {
-    return res.status(404).send({ message: "User not found" });
-  }
-  const { name, email } = req.body;
-  users[userIndex] = { id: userId, name, email };
-  res.status(200).send(users[userIndex]);
-});
-
-router.delete("/:id", (req, res) => {
-  const userId = parseInt(req.params.id);
-  users = users.filter((u) => u.id !== userId);
-  res.status(204).send();
-});
+router.delete("/:id", userControllers.remove);
 
 export default router;
