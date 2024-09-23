@@ -1,9 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-// interface User {
-//   id: number;
-//   name: string;
-//   email: string;
-// }
 // let users: User[] = [];
 const userSchema = new Schema({
     id: {

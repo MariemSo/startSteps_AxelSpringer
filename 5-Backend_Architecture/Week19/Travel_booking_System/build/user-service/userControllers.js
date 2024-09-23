@@ -4,7 +4,7 @@ const getAll = async (req, res) => {
     res.status(200).send(users);
 };
 const getOne = async (req, res) => {
-    const userId = parseInt(req.params.id);
+    const userId = req.params.id;
     const user = await User.findById(userId);
     // const user = User.find((u) => u.id === userId);
     if (!user) {
@@ -28,7 +28,7 @@ const create = async (req, res) => {
     return res.status(201).send(newUser);
 };
 const update = async (req, res) => {
-    const userId = parseInt(req.params.id);
+    const userId = req.params.id;
     const { name, email } = req.body;
     const user = await User.findByIdAndUpdate(userId, { name, email }, { new: true });
     if (user) {
@@ -43,7 +43,7 @@ const update = async (req, res) => {
     // res.status(200).send(users[userIndex]);
 };
 const remove = async (req, res) => {
-    const userId = parseInt(req.params.id);
+    const userId = req.params.id;
     const user = await User.findByIdAndDelete(userId);
     // const userIndex = users.findIndex((u) => u.id === userId);
     // users.splice(userIndex, 1);

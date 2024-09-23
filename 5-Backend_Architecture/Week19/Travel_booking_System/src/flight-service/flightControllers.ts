@@ -21,18 +21,31 @@ const getOne = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
-  const { origin, destination, price } = req.body;
-  const newFlight = {
-    origin,
-    destination,
-    price,
-  };
-  // const userRequest = await axios.get(`http://localhost:${process.env.USER_SERVICES_PATH}/users/${userId}`)
-  const flight = new Flight(newFlight);
-  await flight.save();
-  res.status(201).send(newFlight);
-};
+  const { userId, origin, destination, price } = req.body;
+  try {
+    const userRequest = await axios.get(
+      `http://localhost:${process.env.USER_SERVICES_PATH}/users/${userId}`
+    );
 
+    if (userRequest.status === 200) {
+      const newFlight = {
+        origin,
+        destination,
+        price,
+      };
+      const flight = new Flight(newFlight);
+      await flight.save();
+      res.status(201).send(newFlight);
+    } else {
+      return res.status(404).json({ message: "User not found" });
+    }
+  } catch (error: any) {
+    return res.status(500).json({
+      message: "Error communication with User Service",
+      error: error.message,
+    });
+  }
+};
 const remove = async (req: Request, res: Response) => {
   const flightId = req.params.id;
   await Flight.findByIdAndDelete(flightId);

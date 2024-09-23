@@ -12,6 +12,10 @@ const flightSchema = Joi.object({
         "number.base": "Price must be a number",
         "any.required": "Price is required",
     }),
+    userId: Joi.string().required().messages({
+        "string.base": "Origin cannot be empty",
+        "any.required": "Origin is required",
+    }),
 });
 const flightValidator = (req, res, next) => {
     const { error } = flightSchema.validate(req.body);

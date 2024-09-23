@@ -1,6 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 import flightsRoutes from "./flightRoutes.js";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
