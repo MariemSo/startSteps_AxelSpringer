@@ -4,17 +4,19 @@ import mongoose from "mongoose";
 
 const app = express();
 
-const Port = process.env.PORT || 3001;
+const Port = process.env.USER_SERVICES_PATH || 3001;
 
 app.use(express.json());
 app.use("/users", userRoutes);
 
-mongoose
-  .connect(
-    "mongodb+srv://testuser:test1234@education.bsck2.mongodb.net/?retryWrites=true&w=majority&appName=education"
-  )
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("Could not connect to MongoDB", err));
+if (process.env.MONGODB_SERVER) {
+  mongoose
+    .connect(process.env.MONGODB_SERVER)
+    .then(() => console.log("Connected to MongoDB"))
+    .catch((err) => console.error("Could not connect to MongoDB", err));
+} else {
+  console.log("Data Base URL Not found in env.file");
+}
 
 app.listen(Port, () => {
   console.log(`The User Server is running on ${Port}`);
