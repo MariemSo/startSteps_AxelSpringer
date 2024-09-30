@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import Flight from "./flightModels.js";
+import Flight from "../Models/flightModels.js";
 import axios from "axios";
 
 const getAll = async (req: Request, res: Response) => {
@@ -47,9 +47,13 @@ const create = async (req: Request, res: Response) => {
   }
 };
 const remove = async (req: Request, res: Response) => {
-  const flightId = req.params.id;
-  await Flight.findByIdAndDelete(flightId);
-  res.status(204).send();
+  try {
+    const flightId = req.params.id;
+    await Flight.findByIdAndDelete(flightId);
+    res.status(204).send();
+  } catch (error: any) {
+    return res.status(500).send(error);
+  }
 };
 
 export default { getAll, getOne, remove, create };
