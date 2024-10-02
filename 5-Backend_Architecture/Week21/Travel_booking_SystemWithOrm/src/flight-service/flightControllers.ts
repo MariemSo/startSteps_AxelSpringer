@@ -1,16 +1,18 @@
 import { Request, Response } from "express";
-import Flight from "../Models/flightModels.js";
-import axios from "axios";
+import { Flight } from "../entities/Flights.js";
+import { AppDataSource } from "../database/ormconfig.js";
+
+const flightRepo = AppDataSource.getRepository(Flight);
 
 const getAll = async (req: Request, res: Response) => {
-  const flights = await Flight.find();
+  const flights = await flightRepo.find();
   res.status(200).send(flights);
 };
 
 const getOne = async (req: Request, res: Response) => {
-  const flightId = req.params.id;
+  const flightId = parseInt(req.params.id);
   try {
-    const flight = await Flight.findById(flightId);
+    const flight = await flightRepo.findOneBy({ flight_id: flightId });
     if (!flight) {
       return res.status(404).send({ message: "Flight not found" });
     }
@@ -21,24 +23,17 @@ const getOne = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
-  const { userId, origin, destination, price } = req.body;
+  const { origin, destination, departure_time, arrival_time, price } = req.body;
   try {
-    const userRequest = await axios.get(
-      `http://localhost:${process.env.USER_SERVICES_PATH}/users/${userId}`
-    );
-
-    if (userRequest.status === 200) {
-      const newFlight = {
-        origin,
-        destination,
-        price,
-      };
-      const flight = new Flight(newFlight);
-      await flight.save();
-      res.status(201).send(newFlight);
-    } else {
-      return res.status(404).json({ message: "User not found" });
-    }
+    const newFlight = flightRepo.create({
+      origin,
+      destination,
+      departure_time,
+      arrival_time,
+      price,
+    });
+    await flightRepo.save(newFlight);
+    res.status(201).send(newFlight);
   } catch (error: any) {
     return res.status(500).json({
       message: "Error communication with User Service",
@@ -46,14 +41,44 @@ const create = async (req: Request, res: Response) => {
     });
   }
 };
+
+const updateById = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+    const { origin, destination, departure_time, arrival_time, price } =
+      req.body;
+    const flight = await flightRepo.findOneBy({ flight_id: id });
+    if (!flight) {
+      return res.status(404).send({ message: "Flight not found" });
+    }
+    flightRepo.merge(flight, {
+      origin,
+      destination,
+      departure_time,
+      arrival_time,
+      price,
+    });
+    const updatedFight = await flightRepo.save(flight);
+    res.status(200).send(updatedFight);
+  } catch (error: any) {
+    console.log(error);
+    res
+      .status(error.status || 500)
+      .send(error.message || "Somthing went wrong");
+  }
+};
+
 const remove = async (req: Request, res: Response) => {
   try {
     const flightId = req.params.id;
-    await Flight.findByIdAndDelete(flightId);
+    const result = await flightRepo.delete(flightId); //returns the number of rows affected by the deletion , 0 means nothing was deleted
+    if (result.affected === 0) {
+      return res.status(404).send({ message: "User not found" });
+    }
     res.status(204).send();
   } catch (error: any) {
     return res.status(500).send(error);
   }
 };
 
-export default { getAll, getOne, remove, create };
+export default { getAll, getOne, remove, create, updateById };

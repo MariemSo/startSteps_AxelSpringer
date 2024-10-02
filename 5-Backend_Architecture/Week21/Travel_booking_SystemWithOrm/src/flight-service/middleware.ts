@@ -14,9 +14,13 @@ const flightSchema = Joi.object({
     "number.base": "Price must be a number",
     "any.required": "Price is required",
   }),
-  userId: Joi.string().required().messages({
-    "string.base": "Origin cannot be empty",
-    "any.required": "Origin is required",
+  departure_time: Joi.string().required().messages({
+    "number.base": "departure_time must be a number",
+    "any.required": "departure_time is required",
+  }),
+  arrival_time: Joi.string().required().messages({
+    "number.base": "arrival_time must be a number",
+    "any.required": "arrival_time is required",
   }),
 });
 

@@ -10,6 +10,8 @@ router.get("/", flightControllers.getAll);
 
 router.get("/:id", flightControllers.getOne);
 
+router.put("/:id", flightControllers.updateById);
+
 router.delete("/:id", flightControllers.remove);
 
 export default router;

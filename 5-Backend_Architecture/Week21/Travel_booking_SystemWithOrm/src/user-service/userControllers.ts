@@ -49,7 +49,7 @@ const update = async (req: Request, res: Response) => {
 const remove = async (req: Request, res: Response) => {
   const userId = parseInt(req.params.id);
   const user = await userRepo.delete(userId);
-  if (!user) {
+  if (user.affected === 0) {
     return res.status(404).send({ message: "User not found" });
   }
   res.status(204).send();

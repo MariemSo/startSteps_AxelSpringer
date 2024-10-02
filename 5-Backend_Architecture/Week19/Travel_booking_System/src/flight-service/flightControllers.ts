@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import Flight from "../Models/flightModels.js";
+import User from "../Models/userModel.js";
 import axios from "axios";
 
 const getAll = async (req: Request, res: Response) => {
@@ -21,29 +22,48 @@ const getOne = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
-  const { userId, origin, destination, price } = req.body;
   try {
-    const userRequest = await axios.get(
+    const { origin, destination, price, userId } = req.body;
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+    const newFlight = {
+      origin,
+      destination,
+      price,
+    };
+    const flight = new Flight(newFlight);
+    await flight.save();
+    res.status(201).send(newFlight);
+  } catch (error: any) {
+    return res
+      .status(error.status || 500)
+      .send({ message: error.message, userMessage: "Somthing went wrong" });
+  }
+};
+const updateById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { origin, destination, price, userId } = req.body;
+    await axios.get(
       `http://localhost:${process.env.USER_SERVICES_PATH}/users/${userId}`
     );
-
-    if (userRequest.status === 200) {
-      const newFlight = {
+    const updatedFight = await Flight.findByIdAndUpdate(
+      id,
+      {
         origin,
         destination,
         price,
-      };
-      const flight = new Flight(newFlight);
-      await flight.save();
-      res.status(201).send(newFlight);
-    } else {
-      return res.status(404).json({ message: "User not found" });
-    }
+      },
+      { new: true }
+    );
+    res.status(200).send(updatedFight);
   } catch (error: any) {
-    return res.status(500).json({
-      message: "Error communication with User Service",
-      error: error.message,
-    });
+    console.log(error);
+    res
+      .status(error.status || 500)
+      .send(error.message || "Somthing went wrong");
   }
 };
 const remove = async (req: Request, res: Response) => {
@@ -56,4 +76,4 @@ const remove = async (req: Request, res: Response) => {
   }
 };
 
-export default { getAll, getOne, remove, create };
+export default { getAll, getOne, remove, create, updateById };
