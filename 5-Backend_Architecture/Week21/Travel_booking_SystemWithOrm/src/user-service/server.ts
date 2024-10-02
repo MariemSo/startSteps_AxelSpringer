@@ -4,7 +4,7 @@ import { AppDataSource } from "../database/ormconfig.js";
 
 const app = express();
 
-app.use("/users", userRoutes);
+app.use("/api/users", userRoutes);
 const connectToORM = async () => {
   try {
     await AppDataSource.initialize();
