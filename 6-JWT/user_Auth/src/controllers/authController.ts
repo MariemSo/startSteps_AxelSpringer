@@ -24,6 +24,7 @@ const signUp = async (req: Request, res: Response) => {
 
 const signIn = async (req: Request, res: Response) => {
   const { username, password } = req.body;
+  console.log(username, password);
   try {
     //find user in the database with username
     const user = await User.findOne({ username });
@@ -31,7 +32,6 @@ const signIn = async (req: Request, res: Response) => {
       res.status(401).json({ message: "Invalid Credentials" });
       return;
     }
-
     //Check password by comparing to the hashed in DB
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
