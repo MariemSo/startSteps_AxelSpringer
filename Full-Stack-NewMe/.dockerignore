@@ -1,0 +1,9 @@
+.env
+README.md
+nodemoon.json
+Dockerfile
+docker-compose.yml
+.gitignore
+.dockerirgnore
+dist
+node_modules
