@@ -1,14 +1,13 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import { configs } from "./config/env.js";
-import { connectDB } from "./database/datasource.js";
+import { connectDB } from "./config/dataBase.js";
+import router from "./routes.js";
 
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("News Aggregator API is running!");
-});
+app.use(router);
 
 connectDB().then(() => {
   app.listen(configs.PORT, () => {
