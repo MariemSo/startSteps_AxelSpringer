@@ -11,4 +11,7 @@ export const configs = {
     POSTGRES_DB: process.env.POSTGRES_DB || "news_app_db",
     POSTGRES_HOST: process.env.POSTGRES_HOST || "postgres",
   },
+  auth: {
+    JWT_SECRET: process.env.JWT_SECRET,
+  },
 };
