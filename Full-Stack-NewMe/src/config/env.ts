@@ -1,6 +1,12 @@
 import dotenv from "dotenv";
 
-dotenv.config();
+const envFile =
+  process.env.NODE_ENV === "Production"
+    ? ".env.prod"
+    : process.env.NODE_ENV === "Test"
+    ? ".env.test"
+    : ".env";
+dotenv.config({ path: envFile });
 
 export const configs = {
   PORT: process.env.PORT || 5000,

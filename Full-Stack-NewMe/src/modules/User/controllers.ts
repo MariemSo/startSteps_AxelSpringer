@@ -9,6 +9,7 @@ const userRepo = AppDataSource.getRepository(User);
 
 const register = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
+
   try {
     const userExists = await userRepo.findOneBy({ email });
     if (userExists) {
@@ -36,6 +37,7 @@ const login = async (req: Request, res: Response) => {
     if (!configs.auth.JWT_SECRET) {
       throw new Error("Error in generating token");
     }
+    //sign= creates token (param 1. payload- param 2. secret-token )
     const token = jwt.sign({ userId: userExists.id }, configs.auth.JWT_SECRET, {
       expiresIn: "1h",
     });

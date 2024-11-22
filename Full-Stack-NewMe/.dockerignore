@@ -1,4 +1,5 @@
 .env
+.env.test
 README.md
 nodemoon.json
 Dockerfile
