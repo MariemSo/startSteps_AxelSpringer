@@ -1,14 +1,15 @@
 import dotenv from "dotenv";
 
 const envFile =
-  process.env.NODE_ENV === "Production"
+  process.env.NODE_ENV === "production"
     ? ".env.prod"
-    : process.env.NODE_ENV === "Test"
+    : process.env.NODE_ENV === "test"
     ? ".env.test"
     : ".env";
 dotenv.config({ path: envFile });
 
 export const configs = {
+  NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT || 5000,
   database: {
     POSTGRES_PORT: parseInt(process.env.POSTGRES_PORT || "5432"),
