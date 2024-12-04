@@ -20,5 +20,6 @@ export const configs = {
   },
   auth: {
     JWT_SECRET: process.env.JWT_SECRET,
+    NEWS_API_KEY: process.env.NEWS_API_KEY,
   },
 };
