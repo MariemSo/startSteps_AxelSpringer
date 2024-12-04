@@ -9,5 +9,14 @@ const latestNews = {
       .default('publishedAt'),
   }),
 };
+const searchNews = {
+  query: Joi.object({
+    q: Joi.string().required(), // Make the query mandatory
+    limit: Joi.number().integer().min(1).max(100).default(10),
+    sortBy: Joi.string()
+      .valid('relevancy', 'popularity', 'publishedAt')
+      .default('relevancy'),
+  }),
+};
 
-export default { latestNews };
+export default { latestNews, searchNews };

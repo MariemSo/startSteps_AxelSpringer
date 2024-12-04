@@ -11,5 +11,10 @@ router.get(
   validateRequest(newsValidationSchemas.latestNews),
   newsController.getLatestNews,
 );
+router.get(
+  '/search',
+  validateRequest(newsValidationSchemas.searchNews),
+  newsController.searchNews,
+);
 
 export default router;

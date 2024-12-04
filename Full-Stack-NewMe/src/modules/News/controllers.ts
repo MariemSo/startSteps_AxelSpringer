@@ -14,4 +14,14 @@ const getLatestNews = async (req: Request, res: Response) => {
   }
 };
 
-export default { getLatestNews };
+const searchNews = async (req: Request, res: Response) => {
+  const { q, limit, sortBy } = req.query;
+  try {
+    const news = await fetchFromNewsAPI('/everything', { q, limit, sortBy });
+    res.status(200).send(news.articles);
+  } catch (error) {
+    res.status(500).send({ message: 'Error in searching News', error });
+  }
+};
+
+export default { getLatestNews, searchNews };
